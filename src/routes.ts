@@ -172,7 +172,7 @@ export const createRouter = (ctx: AppContext) => {
 
       if (!agent) {
         // Serve the logged-out view
-        return res.type('html').send(page(home({ statuses, didHandleMap })))
+        return res.type('html').send(page(home({ didHandleMap })))
       }
 
       // Fetch additional information about the logged-in user
@@ -191,10 +191,8 @@ export const createRouter = (ctx: AppContext) => {
       return res.type('html').send(
         page(
           home({
-            statuses,
             didHandleMap,
             profile,
-            myStatus,
           })
         )
       )
