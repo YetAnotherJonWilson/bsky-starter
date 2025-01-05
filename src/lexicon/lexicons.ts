@@ -238,32 +238,6 @@ export const schemaDict = {
       },
     },
   },
-  XyzStatusphereStatus: {
-    lexicon: 1,
-    id: 'xyz.statusphere.status',
-    defs: {
-      main: {
-        type: 'record',
-        key: 'tid',
-        record: {
-          type: 'object',
-          required: ['status', 'createdAt'],
-          properties: {
-            status: {
-              type: 'string',
-              minLength: 1,
-              maxGraphemes: 1,
-              maxLength: 32,
-            },
-            createdAt: {
-              type: 'string',
-              format: 'datetime',
-            },
-          },
-        },
-      },
-    },
-  },
   ComAtprotoRepoStrongRef: {
     lexicon: 1,
     id: 'com.atproto.repo.strongRef',
@@ -291,6 +265,5 @@ export const lexicons: Lexicons = new Lexicons(schemas)
 export const ids = {
   ComAtprotoLabelDefs: 'com.atproto.label.defs',
   AppBskyActorProfile: 'app.bsky.actor.profile',
-  XyzStatusphereStatus: 'xyz.statusphere.status',
   ComAtprotoRepoStrongRef: 'com.atproto.repo.strongRef',
 }

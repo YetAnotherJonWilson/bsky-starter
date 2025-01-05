@@ -1,11 +1,9 @@
-import type { Status } from '#/db'
 import { html } from '../lib/view'
 import { shell } from './shell'
 
 const TODAY = new Date().toDateString()
 
 type Props = {
-  didHandleMap: Record<string, string>
   profile?: { displayName?: string }
 }
 
@@ -16,7 +14,7 @@ export function home(props: Props) {
   })
 }
 
-function content({ didHandleMap, profile }: Props) {
+function content({ profile }: Props) {
   return html`<div id="root">
     <div class="error"></div>
     <div id="header">
@@ -47,11 +45,4 @@ function content({ didHandleMap, profile }: Props) {
 
 function toBskyLink(did: string) {
   return `https://bsky.app/profile/${did}`
-}
-
-function ts(status: Status) {
-  const createdAt = new Date(status.createdAt)
-  const indexedAt = new Date(status.indexedAt)
-  if (createdAt < indexedAt) return createdAt.toDateString()
-  return indexedAt.toDateString()
 }
